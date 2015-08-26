@@ -40,7 +40,7 @@ def main():
 		population_mutate(population, INITIAL_POPULATION_SIZE, MUTATION_RATE, MUTATION_EFFECT_MODE, MUTATION_EFFECT_INTENSITY)
 
 		best_fitness_element = fitness.index(min(fitness))
-		print "Best fitness of this generation was found to be", fitness[best_fitness_element], "at the element", best_fitness_element
+		print "Best fitness for this generation was found to be", fitness[best_fitness_element], "at the element", best_fitness_element
 		print population[best_fitness_element]
 		print '\n'
 
