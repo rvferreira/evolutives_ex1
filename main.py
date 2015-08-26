@@ -7,10 +7,10 @@ MUTATION_RATE = 0.1
 MUTATION_EFFECT_MODE = 'PLUS_MINUS'
 MUTATION_EFFECT_INTENSITY = 0.01
 PARENTS_SELECTION = 'ROULETTE'
-INITIAL_POPULATION_SIZE = 50
+INITIAL_POPULATION_SIZE = 1000
 INITIAL_POPULATION_MODE = 'RANDOM'
 INDIVIDUAL_DIMENSIONS_COUNT = 4
-LAST_GENERATION = 10
+LAST_GENERATION = 30
 
 def test_fitness(population_vector, fitness_vector, fitness_function, population_size, individual_dimensions):
 	for i in range(population_size):
@@ -37,7 +37,7 @@ def main():
 			break
 
 		population = population_evolve(population, fitness, INITIAL_POPULATION_SIZE, CROSSOVER)
-		population_mutate(population, INITIAL_POPULATION_SIZE, MUTATION_RATE, MUTATION_EFFECT_MODE, MUTATION_EFFECT_INTENSITY)
+		population_mutate(population, MUTATION_RATE, MUTATION_EFFECT_MODE, MUTATION_EFFECT_INTENSITY)
 
 		best_fitness_element = fitness.index(min(fitness))
 		print "Best fitness for this generation was found to be", fitness[best_fitness_element], "at the element", best_fitness_element

@@ -1,8 +1,8 @@
 from random import seed, randrange
 from math import cos, exp, sqrt, pi, fsum
 
-MIN_X_RANGE = 0.0
-MAX_X_RANGE = 1.0
+MIN_X_RANGE = -50.0
+MAX_X_RANGE = 50.0
 C3 = 2*pi
 C2 = 0.2
 C1 = 20
@@ -45,8 +45,18 @@ def population_evolve(population_vector, fitness_vector, population_size, crosso
 	return new_generation
 
 
-def population_mutate(population_vector, population_size, mutation_rate, mutation_mode, mutation_intensity):
-	print "mutate"
+def population_mutate(population_vector, mutation_rate, mutation_mode, mutation_intensity):
+	seed()
+	for i in range(len(population_vector)):
+		for j in range(len(population_vector[i])):
+
+			chance = randrange(0, 100)/100.0
+			if chance < mutation_rate:
+				if mutation_mode=='PLUS_MINUS':
+					if randrange(0,2)==1:
+						population_vector[i][j]=round(population_vector[i][j]+mutation_intensity, 4)
+					else:
+						population_vector[i][j]=round(population_vector[i][j]-mutation_intensity, 4)
 
 
 def population_init(population_vector, fitness_vector, population_size, individual_dimensions_count):
@@ -73,4 +83,4 @@ def ackley_fitness(population_vector, index, individual_dimensions_count):
 	return round(-C1*exp(-C2*sqrt((1.0/individual_dimensions_count)*s1)-exp((1.0/individual_dimensions_count)*s2))+C1+1, 6)
 
 
-if __name__ == '__main__': population_init(3, population, 2) #ackley_fitness(population, 2, 100, fitness)
+#if __name__ == '__main__': population_init(3, fitness, population, 2)
