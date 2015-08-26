@@ -38,7 +38,7 @@ def main():
 			break
 
 		population_evolve(population, INITIAL_POPULATION_SIZE, CROSSOVER)
-		population_mutate(population, INITIAL_POPULATION_SIZE, MUTATION_RATE, MUTATION_EFFECT_MODE, MUTATION_EFFECT_INTENSITY)
+		population_mutate(population, MUTATION_RATE, MUTATION_EFFECT_MODE, MUTATION_EFFECT_INTENSITY)
 
 		print '\n'
 
