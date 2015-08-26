@@ -16,12 +16,13 @@ def population_mutate(population_vector, mutation_rate, mutation_mode, mutation_
 	for i in range(len(population_vector)):
 		for j in range(len(population_vector[i])):
 			chance=randrange(0, 10000)
-			if mutation_rate*100>=chance:
+			if 100>99: #mutation_rate*100>=chance:
 				if mutation_mode=='PLUS_MINUS':
 					if randrange(0,2)==1:
-						population_vector[i][j]=(population_vector[i][j]+mutation_intensity)
+						population_vector[i][j]=round(population_vector[i][j]+mutation_intensity, 4)
 					else:
-						population_vector[i][j]=(population_vector[i][j]-mutation_intensity)
+						population_vector[i][j]=round(population_vector[i][j]-mutation_intensity, 4)
+	print population_vector
 
 
 def population_init(population_vector, fitness_vector, population_size, individual_dimensions_count):
